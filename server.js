@@ -1,16 +1,47 @@
-//  this file will contain all require packages as const variables 
-// insert packages here
+const path = require('path');
+const express = require('express');
+const session = require('express-session');
+const exphbs = require('express-handlebars');
+const routes = require('./controllers');
+const helpers = require('./utils/helpers');
+const colorScheme =  require('color-scheme');
 
-// const app express
-// const variale for port 3001:
+const sequelize = require('./config/connection');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
+const app = express();
+const PORT = process.env.PORT || 3001;
 
-// handlebars.js engine goes here {helpers}
+// Set up Handlebars.js engine with custom helpers
+const hbs = exphbs.create({ helpers });
 
+const sess = {
+  secret: 'Super secret secret',
+  cookie: {
+    maxAge: 300000,
+    httpOnly: true,
+    secure: false,
+    sameSite: 'strict',
+  },
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+};
 
-// add sesssion - this will be session rules, cookies, session time
+app.use(session(sess));
 
+// Inform Express.js on which template engine to use
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
-// app.use session
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
 
-// add middlewears - "app.use..."
+app.use(routes);
+
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log('Now listening!'));
+});
