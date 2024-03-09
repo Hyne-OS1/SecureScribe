@@ -1,6 +1,23 @@
 // const require variables for router, models, utils/auth
+const router = require('express').Router();
+
 
 // GET request for root URL ('/')
+
+
+router.get('/', (req, res) => {
+    if (!req.session.loggedIn) {
+        res.redirect('/login');  
+        return; 
+    } else {
+      req.session.save(() => {
+          res.render('homepage', {
+              user_name: req.session.user_name,
+              logged_in: req.session.loggedIn
+          });
+      })
+    };
+});
 // define route
 // handle request
 // try catch block
