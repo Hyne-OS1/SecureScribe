@@ -3,7 +3,7 @@ const { User } = require('../../models');
 
 
 
-
+// This function creates a new user from the request body, saves the user's ID and login status in the session, and sends back the user data if successful, or an error message if not.
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
@@ -16,6 +16,9 @@ router.post('/', async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+// Post function for log-in, checks password and email validation. If both params are filled, saves to session.
+// login route - if the session variable 'user_id' is set, then we are already logged in
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
@@ -41,6 +44,10 @@ router.post('/login', async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+
+
+//  logout route - clear out the session variables and redirect to the homepage.
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
