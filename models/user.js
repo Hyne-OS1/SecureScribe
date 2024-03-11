@@ -3,14 +3,17 @@
 // populate user data, id, name etc with values and primarykey
 // password bcrypt hashing will also take place in this file in a hook with async await function. BEFORECREATE AND BEFOREUPDATE function.
 // mopdule.exports = User;
+
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
+
 class User extends Model {
-  checkPassword(loginPw) {
-    return bcrypt.compareSync(loginPw, this.password);
-  }
+    checkPassword(loginPw) {
+      return bcrypt.compareSync(loginPw, this.password);
+    }
 }
+
 User.init(
   {
     id: {
@@ -57,18 +60,5 @@ User.init(
     modelName: 'user',
   }
 );
+
 module.exports = User;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
