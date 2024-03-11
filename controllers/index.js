@@ -5,13 +5,13 @@
 // these can be updated for other routes as needed.
 
 const router = require("express").Router();
-const userRoutes = require('./user-routes');
-const scribeRoutes = require("./scribe-routes")
-const homeRoutes = require("./homeRoutes");
+const userRoutes = require('./api/user-routes');
+const scribeRoutes = require("./api/scribe-routes")
 
-router.use("/", homeRoutes);
-router.use("/user-routes", userRoutes);
-router.use("/scribe-routes", scribeRoutes);
+
+
+router.use("./user-routes", userRoutes);
+router.use("./scribe-routes", scribeRoutes);
 
 // module.exports = router;
 module.exports = router;
