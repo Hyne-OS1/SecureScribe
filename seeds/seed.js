@@ -9,10 +9,10 @@
 // const variable ---> async await function ---- seedDatabase(); at end
 
 const sequelize = require('../config/connection');
-const { User, Post } = require('../models');
+const { User, Scribe } = require('../models');
 
 const userData = require('./userData.json');
-const postData = require('./postData.json');
+const scribeData = require('./scribeData.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -22,9 +22,9 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  for (const post of postData) {
-    await Post.create({
-      ...post,
+  for (const scribe of scribeData) {
+    await Scribe.create({
+      ...scribe,
       user_id: users[Math.floor(Math.random() * users.length)].id,
     });
   }
