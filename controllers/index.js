@@ -6,12 +6,14 @@
 
 const router = require("express").Router();
 const userRoutes = require('./api/user-routes');
-const scribeRoutes = require("./api/scribe-routes")
+const scribeRoutes = require("./api/scribe-routes");
+const Homeroutes = require('./homeRoutes');
 
 
 
-router.use("./user-routes", userRoutes);
-router.use("./scribe-routes", scribeRoutes);
+router.use("/", Homeroutes);
+router.use("/user-routes", userRoutes);
+router.use("/scribe-routes", scribeRoutes);
 
 // module.exports = router;
 module.exports = router;
