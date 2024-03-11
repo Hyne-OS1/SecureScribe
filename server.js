@@ -5,6 +5,7 @@ const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 const colorScheme =  require('color-scheme');
+const controller_path = require('./controllers');
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -29,7 +30,7 @@ const sess = {
     db: sequelize
   })
 };
-
+app.use(controller_path)
 app.use(session(sess));
 
 // Inform Express.js on which template engine to use
