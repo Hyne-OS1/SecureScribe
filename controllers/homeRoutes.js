@@ -4,6 +4,7 @@ const { Scribe, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 
+
 // GET request for root URL ('/')
 router.get('/', async (req, res) => {
     try {
@@ -19,8 +20,9 @@ router.get('/', async (req, res) => {
       // Serialize data so that it is suitable to be rendered in templates
       const scribe = scribeData.map((scribes) => scribes.get({ plain: true }));
       // Pass serialized data and session flag into template
-      res.render('homepage', {
+      res.render('landingPage', {
         scribe,
+
       });
     } catch (err) {
       res.status(500).json(err);
