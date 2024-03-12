@@ -48,6 +48,7 @@ router.post('/login', async (req, res) => {
 
 
 //  logout route - clear out the session variables and redirect to the homepage.
+// this will be on homepage handlebar
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
