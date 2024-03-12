@@ -4,6 +4,7 @@ const { Scribe, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 
+
 // GET request for root URL ('/')
 router.get('/', async (req, res) => {
     try {

@@ -1,150 +1,73 @@
+{{!-- example of a homepage.handlebars file --}}
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+    <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <title>Secure Scribe</title>
+    <!-- Include the stylesheet -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="/public/css/style.css"/> 
 </head>
+    
+
+
 
 <body>
-    <!-- PAGE NAVIGATION-->
-    <nav class="navbar navbar-expand-lg bg-dark text-light">
-        <div class="container-fluid">
-            <a class="navbar-brand text-bold text-light" href="#" style="font-size: xx-large;">Secure Scribe</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-dark text-light justify-content-start">
+    <div class="container-fluid">
+        <a class="navbar-brand text-light" href="#" style="font-size: xx-large;">Secure Scribe</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page" href="#">About</a>
+                </li>
+                    <a class="nav-link active text-light" aria-current="page" href="#">Contact</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="#">Account</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="#">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="#">Settings</a>
-                    </li>
-                </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section id="welcome"> 
+    <div class="row my-5 align-items-center justify-content-center">
+        <div class="col-md-7 col-xl-6 justify-content-center">
+            <p class="lead"><strong>Welcome to Secure Scribe</strong>, where your thoughts, reflections, and memories are safeguarded with utmost care. Here, you can freely express yourself without worrying about prying eyes or unauthorized access. Your privacy and security are our top priorities, as we understand the importance of preserving your personal journey.</p>
+            <p class="subtitle text-center text-muted">Please Sign-In or Create an Account</p>
+            <div class="text-center">
+                <button id="login-page" class="btn btn-warning mt-3 text-center shadow-l">Login</button>
+                <button id="signup-page" class="btn btn-warning mt-3 text-center shadow-l">Create Account</button>
             </div>
         </div>
-    </nav>
+    </div>
+</section>
 
-    <section>
-        <div class="container py-5 my-5 py-3 px-3">
-            <h1 class="text-center">An intimate exchange between the mind and the page</h1>
-            <p class="lead mb-4 text-center py-2">Embrace the freedom to express yourself fully, knowing that your words
-                are yours alone.
-                Start your journey of reflection, growth, and self-awareness today, and let the pages of your digital
-                journal bear witness to the beauty of your inner world.</p>
+<section id="reasons">
+    <div class="row my-5 align-items-center justify-content-center border-top-1">
+        <div class="col-md-6 col-lg-5">
+            <h2 class="lead text-bold text-center fw-bold mt-4">Why you should consider Journaling -</h2>
+            <ul class="list-group list-group-flush mt-3">
+                <li class="list-group-item mt-3"><strong>Self-reflection</strong>: Journaling allows you to reflect on your thoughts, emotions, and experiences, leading to greater self-awareness and personal growth.</li>
+                <li class="list-group-item mt-3"><strong>Emotional outlet</strong>: It provides a safe space to express and process emotions, reducing stress and promoting emotional well-being.</li>
+                <li class="list-group-item mt-3"><strong>Goal setting</strong>: Writing down goals and aspirations helps clarify your intentions and increases accountability for achieving them.</li>
+                <li class="list-group-item mt-3"><strong>Memory preservation</strong>: Keeping a journal preserves memories and experiences for future reflection and reminiscence.</li>
+                <li class="list-group-item mt-3"><strong>Problem-solving</strong>: Journaling can help organize thoughts and clarify complex issues, leading to better problem-solving skills.</li>
+            </ul>
         </div>
-    </section>
+    </div>
+</section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Diary Entry cards to view/edit or delete-->
-    <section id="diary-entries">
-
-        <div class="container border py-5 my-5">
-            <h2>Previous Entries...</h2>
-            <div class="row my-2 py-2">
-                <div class="col-3">
-                    <div class="card shadow-lg">
-                        <img src="/img/top-view-hands-fill-diary.jpg" class="card-img-top"
-                            alt="Someone writing a diary entry">
-                        <div class="card-body">
-                            <h5 class="card-title">Diary Entry</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn text-light bg-secondary">Edit</a>
-                            <a href="#" class="btn bg-warning">Tear Out</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="card shadow-lg">
-                        <img src="/img/top-view-hands-fill-diary.jpg" class="card-img-top"
-                            alt="Someone writing a diary entry">
-                        <div class="card-body">
-                            <h5 class="card-title">Diary Entry</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn text-light bg-secondary">Edit</a>
-                            <a href="#" id="tear-out" class="btn bg-warning">Tear Out</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-3">
-                    <div class="card shadow-lg">
-                        <img src="/img/top-view-hands-fill-diary.jpg" class="card-img-top"
-                            alt="Someone writing a diary entry">
-                        <div class="card-body">
-                            <h5 class="card-title">Diary Entry</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn text-light bg-secondary">Edit</a>
-                            <a href="#" id="tear-out" class="btn bg-warning">Tear Out</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="card shadow-lg">
-                        <img src="/img/top-view-hands-fill-diary.jpg" class="card-img-top"
-                            alt="Someone writing a diary entry">
-                        <div class="card-body">
-                            <h5 class="card-title">Diary Entry</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn text-light bg-secondary">Edit</a>
-                            <a href="#" class="btn bg-warning">Tear Out</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-    </section>
-    <section id="new-entry">
-        <h1 class="title text-center text-underline">Create a new entry 📝</h1>
-        <div class="container my-2 py-4 rounded">
-            <label for="exampleFormControlInput1" class="form-label">Title</label>
-            <input type="email" class="form-control fw-light" id="exampleFormControlInput1"
-                placeholder="Today I discovered...">
-        </div>
-        <div class="container my-2 py-4 rounded">
-            <label for="exampleFormControlTextarea1" class="form-label">Jot down your thoughts, dreams or ideas</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
-
-    </section>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-    crossorigin="anonymous"></script>
-
 </html>
