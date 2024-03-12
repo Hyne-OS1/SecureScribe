@@ -17,5 +17,9 @@
     "path": "^0.12.7",
     "sequelize": "^6.37.1",
     "utils": "^0.3.1"
+  },
+  "scripts": {
+    "seed": "node seeds/seed.js",
+    "watch": "nodemon server.js"
   }
 }
