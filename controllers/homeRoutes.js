@@ -4,7 +4,8 @@ const { Scribe, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 
-
+// THIS ROUTE IS OPERATIONAL 
+// ( '/' ) TAKES YOU TO LANDING PAGE AUTOMATICALLY AT BASE ROUTE
 // GET request for root URL ('/')
 router.get('/', async (req, res) => {
     try {
@@ -30,77 +31,61 @@ router.get('/', async (req, res) => {
   });
 
 
-  router.get('/scribe/:id', async (req, res) => {
-    try {
-      const scribeData = await Scribe.findByPk(req.params.id, {
-        include: [
-          {
-            model: User,
-            attributes: ['name'],
-          },
-        ],
-      });
-
+  // GET route for LOGIN handlebars page, will check if user is logged in or not.
+    router.get('/login', (req, res) => {
+      // Assuming you set up sessions middleware before this route handler
+      req.session.user_id = '1'; // Just an example user id
+      req.session.logged_in = false;
   
-
-
-
-      router.get('/scribe', withAuth, async (req, res) => {
-        try {
-          // Find the logged in user based on the session ID
-          const userData = await User.findByPk(req.session.user_id, {
-            attributes: { exclude: ['password'] },
-            include: [{ model: Project }],
-          });
-          const user = userData.get({ plain: true });
-          res.render('scribe', {
-            ...user,
-            logged_in: true
-          });
-        } catch (err) {
-          res.status(500).json(err);
-        }
-      });
-      router.get('/login', (req, res) => {
-        // If the user is already logged in, redirect the request to another route
-        if (req.session.logged_in) {
-          res.redirect('/profile');
-          return;
-        }
-        res.render('login');
-      });
+      console.log(req.session.logged_in);
   
+      // If the user is already logged in, redirect them to profile
+      if (req.session.logged_in) {
+          console.log("success user logged in");
+          return res.redirect('profile');
+      }
   
-  
-  
-  const scribe = ScribeData.get({ plain: true });
-      res.render('Scribe', {
-        ...project,
-        logged_in: req.session.logged_in
-      });
-    } catch (err) {
-      res.status(500).json(err);
-    }
+      // If the user is not logged in, render the login page
+      res.render('login');
   });
 
-// define route
-// handle request
-// try catch block
-// findAll method
-// include related data
-// serialize data
-// render homepage
-// handle errrors
+  // this is a basic route handler to grab the profile page this is needed for the get method on line 53
+  router.get('/profile', (req, res) => {
+    // Check if the user is logged in
+    if (!req.session.logged_in) {
+        // If not logged in, redirect to the login page
+        return res.redirect('/login');
+    }
 
-// GET function model id depending on what we wish to search by eg, attributes: [name],
-// rest of code pending for update.
+    // Render the profile page
+    res.render('profile');
+});
 
 
-// with auth GET function 
-// define a route
-//  user middlewear 
-// handle request
-// try catch block
-// find user data
+// GET router for CREATEACCOUNT Handlebars page direct
+router.get('/createAccount', (req, res) => {
+  res.render('createAccount');
+});
+
+
+// POST method for CREATEACCOUNT based off user input fields
+router.post('/createAccount',  async (req, res) => {
+  const { name, email, password} = req.body;
+  try {
+
+  const newAccount = Account ({
+    name,
+    email,
+    password,
+  });
+  await newAccount.save();
+  res.redirect('profile');
+  
+} catch (error) {
+  console.error('error cannot create account', error);
+  res.status(500).send('Error creating accoun. try again.');
+}
+});
 
 module.exports = router;
+

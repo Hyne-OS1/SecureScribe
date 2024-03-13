@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-
+// login/create account api route
 
 // This function creates a new user from the request body, saves the user's ID and login status in the session, and sends back the user data if successful, or an error message if not.
 router.post('/', async (req, res) => {
