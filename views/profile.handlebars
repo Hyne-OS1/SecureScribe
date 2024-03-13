@@ -1,7 +1,7 @@
 {{!-- example filler template for partials this can be added to as need be --}}
 
     <!-- PAGE NAVIGATION-->
-    <nav class="navbar navbar-expand-lg bg-dark text-light">
+    {{!-- <nav class="navbar navbar-expand-lg bg-dark text-light">
         <div class="container-fluid">
             <a class="navbar-brand text-bold text-light" href="#" style="font-size: xx-large;">Secure Scribe</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -25,7 +25,7 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav> --}}
 
     <section>
         <div class="container py-5 my-5 py-3 px-3">
@@ -65,7 +65,7 @@
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
                                 of the card's content.</p>
                             <a href="#" class="btn text-light bg-secondary">Edit</a>
-                            <a href="#" class="btn bg-warning">Tear Out</a>
+                            <a href="#" id="tear-out" class="btn bg-warning">Tear Out</a>
                         </div>
                     </div>
                 </div>
@@ -105,7 +105,7 @@
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
                                 of the card's content.</p>
                             <a href="#" class="btn text-light bg-secondary">Edit</a>
-                            <a href="#" class="btn bg-warning">Tear Out</a>
+                            <a href="#" id="tear-out" class="btn bg-warning">Tear Out</a>
                         </div>
                     </div>
                 </div>
@@ -116,13 +116,14 @@
     <section id="new-entry">
         <h1 class="title text-center text-underline">Create a new entry 📝</h1>
         <div class="container my-2 py-4 rounded">
-            <label for="exampleFormControlInput1" class="form-label">Title</label>
+            <label for="exampleFormControlInput1" id="title" class="form-label">Title</label>
             <input type="email" class="form-control fw-light" id="exampleFormControlInput1"
                 placeholder="Today I discovered...">
         </div>
         <div class="container my-2 py-4 rounded">
-            <label for="exampleFormControlTextarea1" class="form-label">Jot down your thoughts, dreams or ideas</label>
+            <label for="exampleFormControlTextarea1" id="content" class="form-label">Jot down your thoughts, dreams or ideas</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            
         </div>
 
     </section>
