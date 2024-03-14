@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
       // Serialize data so that it is suitable to be rendered in templates
       const scribe = scribeData.map((scribes) => scribes.get({ plain: true }));
       // Pass serialized data and session flag into template
-      res.render('landingPage', {
+      res.render('landingpage', {
         scribe,
 
       });
