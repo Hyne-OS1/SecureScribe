@@ -6,6 +6,7 @@ const newFormHandler = async (event) => {
 const title = document.querySelector('#title').value.trim();
 const content = document.querySelector('#content').value.trim();
 
+
 if (title && content) {
     const response = await fetch(`/api/scribes`, {
       method: 'POST',
@@ -25,7 +26,33 @@ if (title && content) {
 
 // edit post method - change to "view" ? 
 
+const updateFormHandler = async (event) => {
+  event.preventDefault();
 
+  //localhost:3001/scribes/1
+const name = document.querySelector('#scribe-name').value.trim();
+const description = document.querySelector('#scribe-desc').value.trim();
+
+const id = window.location.toString().split('/')[
+  window.location.toString().split('/').length - 1
+];
+
+if (name && description) {
+  const response = await fetch(`/api/scribes/${id}`, {
+    method: 'PUT',
+    body: JSON.stringify({ name, description }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  if (response.ok) {
+    document.location.replace('/scribes');
+  } else {
+    alert('ERROR: scribe not able to be entered');
+  }
+}
+};
 
 // delete scribe fucntion 
 
