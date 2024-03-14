@@ -15,6 +15,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+
 router.put('/:id', (req, res) => {
   // Calls the update method on the scribe model
   Scribe.update(req.body,
@@ -31,6 +32,7 @@ router.put('/:id', (req, res) => {
     })
     .catch((err) => res.json(err));
 });
+
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
