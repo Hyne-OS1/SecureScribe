@@ -23,7 +23,7 @@ if (title && content) {
   }
 };
 
-// edit post method
+// edit post method - change to "view" ? 
 
 
 
@@ -62,6 +62,8 @@ const submitButtonHandler = async (event) => {
     }
   }
 };
+
+// POPULATE CARD FUNCTION - 
 
 
 //   document handlers

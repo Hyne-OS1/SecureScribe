@@ -45,6 +45,32 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// POST method for CREATEACCOUNT based off user input fields
+router.post('/signup',  async (req, res) => {
+  console.log("user post")
+  const name = req.body.name;
+  const email = req.body.email;
+  const password = req.body.password;
+  console.log(name);
+  console.log(req.body);
+  try {
+
+  const newUser = await User.create({
+    name, 
+    email,
+    password,
+  });
+
+  //localhost:300/api/users/signup
+  //localhost:3001/api/users/this.propfind;e
+  res.status(200).json(newUser);
+  
+} catch (error) {
+  console.error('error cannot create account', error);
+  res.status(500).send('Error creating account. try again.');
+}
+});
+
 
 
 //  logout route - clear out the session variables and redirect to the homepage.

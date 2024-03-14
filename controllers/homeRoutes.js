@@ -35,14 +35,14 @@ router.get('/', async (req, res) => {
     router.get('/login', (req, res) => {
       // Assuming you set up sessions middleware before this route handler
       req.session.user_id = '1'; // Just an example user id
-      req.session.logged_in = false;
+      req.session.logged_in = true;
   
       console.log(req.session.logged_in);
-  
+      const logged_in = req.session.logged_in;
       // If the user is already logged in, redirect them to profile
       if (req.session.logged_in) {
           console.log("success user logged in");
-          return res.redirect('profile');
+           res.render('profile', {logged_in});
       }
   
       // If the user is not logged in, render the login page
@@ -63,29 +63,30 @@ router.get('/', async (req, res) => {
 
 
 // GET router for CREATEACCOUNT Handlebars page direct
-router.get('/createAccount', (req, res) => {
-  res.render('createAccount');
+router.get('/signup', (req, res) => {
+  res.render('signup');
 });
 
 
 // POST method for CREATEACCOUNT based off user input fields
-router.post('/createAccount',  async (req, res) => {
-  const { name, email, password} = req.body;
-  try {
+// router.post('/createAccount',  async (req, res) => {
+//   const { name, email, password} = req.body;
+//   try {
 
-  const newAccount = Account ({
-    name,
-    email,
-    password,
-  });
-  await newAccount.save();
-  res.redirect('profile');
+//   const newAccount = Account ({
+//     name,
+//     email,
+//     password,
+//   });
+//   await newAccount.save();
+//   res.redirect('profile');
   
-} catch (error) {
-  console.error('error cannot create account', error);
-  res.status(500).send('Error creating accoun. try again.');
-}
-});
+// } catch (error) {
+//   console.error('error cannot create account', error);
+//   res.status(500).send('Error creating accoun. try again.');
+// }
+// });
+
 
 module.exports = router;
 
