@@ -3,13 +3,14 @@
 const newFormHandler = async (event) => {
     event.preventDefault();
 
-const name = document.querySelector('#scribe-name').value.trim();
-const description = document.querySelector('#scribe-desc').value.trim();
+const title = document.querySelector('#title').value.trim();
+const content = document.querySelector('#content').value.trim();
 
-if (name && description) {
+
+if (title && content) {
     const response = await fetch(`/api/scribes`, {
       method: 'POST',
-      body: JSON.stringify({ name, description }),
+      body: JSON.stringify({ title, content }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -23,7 +24,7 @@ if (name && description) {
   }
 };
 
-// edit post method
+// edit post method - change to "view" ? 
 
 const updateFormHandler = async (event) => {
   event.preventDefault();
@@ -56,8 +57,8 @@ if (name && description) {
 // delete scribe fucntion 
 
 const delButtonHandler = async (event) => {
-    if (event.target.hasAttribute('data-id')) {
-      const id = event.target.getAttribute('data-id');
+    if (event.target.hasAttribute('tear-out')) {
+      const id = event.target.getAttribute('tear-out');
   
       const response = await fetch(`/api/scribes/${id}`, {
         method: 'DELETE',
@@ -71,13 +72,40 @@ const delButtonHandler = async (event) => {
     }
   };
 
+// submit scribe entry functionality for button handler, will repopulate cards on screen
+// ADD REPOPULATE CARD FEATURE TO SCREEN - ASK TA
+const submitButtonHandler = async (event) => {
+  if (event.target.hasAttribute('submit')) {
+    const id = event.target.getAttribute('submit');
+
+    const response = await fetch(`/scribes/${id}`, {
+      method: 'POST',
+    });
+
+    if (response.ok) {
+      document.location.replace('/scribes');
+    } else {
+      alert('ERROR: failed to submit scribe entry');
+    }
+  }
+};
+
+// POPULATE CARD FUNCTION - 
 
 
 //   document handlers
+
+// CHECK IF THIS IS CORRECT FOR PASSING TITLE ALONG WITH CONTENT ID BELOW - ASK TA
 document
-.querySelector('.scribe-entry')
+.querySelector('#title')
 .addEventListener('submit', newFormHandler);
 
 document
-.querySelector('.tear-out')
+.querySelector('#content')
+.addEventListener('submit', newFormHandler);
+
+document
+.querySelector('#tear-out')
 .addEventListener('click'. delButtonHandler);
+
+// submitbuttonhandler document query selector and addeventlistener - ASK TA

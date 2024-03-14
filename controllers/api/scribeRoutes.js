@@ -3,9 +3,6 @@ const { Scribe } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
-
-
-
 router.post('/', withAuth, async (req, res) => {
   try {
     const newScribe = await Scribe.create({
@@ -17,6 +14,7 @@ router.post('/', withAuth, async (req, res) => {
     res.status(400).json(err);
   }
 });
+
 
 router.put('/:id', (req, res) => {
   // Calls the update method on the scribe model
@@ -34,6 +32,7 @@ router.put('/:id', (req, res) => {
     })
     .catch((err) => res.json(err));
 });
+
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
