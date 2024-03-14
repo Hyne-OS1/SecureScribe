@@ -3,9 +3,6 @@ const { Scribe } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
-
-
-
 router.post('/', withAuth, async (req, res) => {
   try {
     const newScribe = await Scribe.create({
