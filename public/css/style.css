@@ -2,7 +2,6 @@
 body {
     background-image: linear-gradient(rgba(244, 241, 241, 0.857), rgba(245, 245, 245, 0.739)), url('/img/thought-catalog-505eectW54k-unsplash.jpg');
     background-size: cover;
-    overflow: hidden;
     background-repeat: no-repeat;
     background-position: center;
     height: 100%;

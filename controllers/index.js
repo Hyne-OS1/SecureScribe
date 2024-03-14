@@ -6,19 +6,20 @@
 
 const router = require("express").Router();
 
-const userRoutes = require('./api/user-routes');
-const scribeRoutes = require("./api/scribe-routes")
+const apiRoutes = require('./api');
+
 const homeRoutes = require("./homeRoutes")
 
 
-
+//localhost:3001/
 router.use("/", homeRoutes);
 
 
 
+//localhost:3001/api
+//localhost:3001/users
+router.use("/api", apiRoutes);
 
-router.use("/user-routes", userRoutes);
-router.use("/scribe-routes", scribeRoutes);
 
 // module.exports = router;
 module.exports = router;
