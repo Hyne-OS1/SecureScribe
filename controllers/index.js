@@ -6,8 +6,8 @@
 
 const router = require("express").Router();
 
-const userRoutes = require('./api/user-routes');
-const scribeRoutes = require("./api/scribe-routes")
+const userRoutes = require('./api/userRoutes');
+const scribeRoutes = require("./api/scribeRoutes")
 const homeRoutes = require("./homeRoutes")
 
 
@@ -17,8 +17,8 @@ router.use("/", homeRoutes);
 
 
 
-router.use("/user-routes", userRoutes);
-router.use("/scribe-routes", scribeRoutes);
+router.use("/userRoutes", userRoutes);
+router.use("/scribeRoutes", scribeRoutes);
 
 // module.exports = router;
 module.exports = router;
