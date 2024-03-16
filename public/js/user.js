@@ -3,9 +3,23 @@
 // create account
 // ONLY FOR CLIENT SIDE
 
-// create account button event listener on create account page
+// Event listener for the login button on the landing page
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('login-page').addEventListener('click', () => {
+        window.location.href = '/login'
+    })
+});
 
-    const createAccountBtn = document.getElementById('create-account');
+// Event listener for the sign-up button on the landing page
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('signup-page').addEventListener('click', () => {
+        window.location.href = '/signup'
+    });
+});
+
+
+// Create account button event listener on create account page
+    const createAccountBtn = document.getElementById('create-an-account');
 
     createAccountBtn.addEventListener('click', async (event) => {
         event.preventDefault();
@@ -44,20 +58,6 @@
 
 
 
-
-// Event listener for the login button on the landing page
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('login-page').addEventListener('click', () => {
-        window.location.href = '/login'
-    })
-});
-
-// Event listener for the sign-up button on the landing page
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('signup-page').addEventListener('click', () => {
-        window.location.href = '/signup'
-    });
-});
 
 
 // Logout button functionality
