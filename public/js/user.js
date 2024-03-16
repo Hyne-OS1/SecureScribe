@@ -4,8 +4,7 @@
 // ONLY FOR CLIENT SIDE
 
 // create account button event listener on create account page
-//document.addEventListener('DOMContentLoaded', () => {
-    console.log("whatttttttttt");
+
     const createAccountBtn = document.getElementById('create-account');
 
     createAccountBtn.addEventListener('click', async (event) => {
@@ -13,10 +12,9 @@
         const name = document.querySelector('#name').value;
         const email = document.querySelector('#email').value;
         const password = document.querySelector('#password').value;
-        const formData = new FormData(document.querySelector('form'));
-        console.log(formData);
+      
         try{
-            console.log("herererer");
+           
             const response = await fetch('/api/users/signup', {
                 method: 'POST',
                 body: JSON.stringify({
@@ -42,6 +40,27 @@
                 console.error('Network error:', error);
             }
         });
-//});
 
-// 
+
+
+
+
+// Event listener for the login button on the landing page
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('login-page').addEventListener('click', () => {
+        window.location.href = '/login'
+    })
+});
+
+// Event listener for the sign-up button on the landing page
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('signup-page').addEventListener('click', () => {
+        window.location.href = '/signup'
+    });
+});
+
+
+// Logout button functionality
+
+
+
