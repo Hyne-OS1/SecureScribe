@@ -44,24 +44,44 @@ const delButtonHandler = async (event) => {
       }
     }
   };
+  
 
+
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('submitscribe').addEventListener('click', () => {
+        window.location.href = '/viewscribe'
+    });
+  })
 // submit scribe entry functionality for button handler, will repopulate cards on screen
 // ADD REPOPULATE CARD FEATURE TO SCREEN - ASK TA
 const submitButtonHandler = async (event) => {
-  if (event.target.hasAttribute('submit')) {
-    const id = event.target.getAttribute('submit');
+  if (event.target.hasAttribute('submitscribe')) {
+    const id = event.target.getAttribute('submitscribe');
 
     const response = await fetch(`/scribes/${id}`, {
       method: 'POST',
     });
 
     if (response.ok) {
-      document.location.replace('/scribes');
+      document.location.replace('/viewscribe');
     } else {
       alert('ERROR: failed to submit scribe entry');
     }
   }
 };
+
+
+
+
+// submit scribe entry functionality for button handler, will repopulate cards on screen
+
+
+
+
+
+
+
 
 // POPULATE CARD FUNCTION - 
 

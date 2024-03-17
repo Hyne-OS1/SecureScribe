@@ -3,6 +3,10 @@ const { Scribe } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
+
+
+
+
 router.post('/', withAuth, async (req, res) => {
   try {
     const newScribe = await Scribe.create({
@@ -14,6 +18,12 @@ router.post('/', withAuth, async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+
+
+
+
+
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
