@@ -1,7 +1,45 @@
 const router = require('express').Router();
-const { Scribe } = require('../../models');
+const { Scribe, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+
+router.get('/', async (req, res) => {
+  // find all scribes for user
+  try {
+    const scribeData = await Scribe.findAll({
+      include: [{ model: User }]
+    });
+
+    if (scribeData) {
+      res.status(200).json(scribeData);
+      return;
+    }
+
+    res.status(404).json({ message: 'No scribe found with that ID!' });
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/:id', async (req, res) => {
+  // find all scribes for user
+  try {
+    const scribeData = await Scribe.findByPk(req.params.id, {
+      include: [{ model: User }]
+    });
+
+    if (scribeData) {
+      res.status(200).json(scribeData);
+      return;
+    }
+
+    res.status(404).json({ message: 'No scribe found with that ID!' });
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 router.post('/', withAuth, async (req, res) => {
   try {
@@ -36,17 +74,17 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const ScribeData = await Scribe.destroy({
+    const scribeData = await Scribe.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
       },
     });
-    if (!ScribeData) {
+    if (!scribeData) {
       res.status(404).json({ message: 'No Scribe found with this id!' });
       return;
     }
-    res.status(200).json(ScribeData);
+    res.status(200).json(scribeData);
   } catch (err) {
     res.status(500).json(err);
   }
