@@ -21,7 +21,22 @@ router.post('/', withAuth, async (req, res) => {
 
 
 
-
+router.put('/:id', (req, res) => {
+  // Calls the update method on the scribe model
+  Scribe.update(req.body,
+    {
+      // Gets the scribes based on the isbn given in the request parameters
+      where: {
+        id: req.params.id,
+      },
+    }
+  )
+    .then((updatedScribe) => {
+      // Sends the updated scribe as a json response
+      res.json(updatedScribe);
+    })
+    .catch((err) => res.json(err));
+});
 
 
 
