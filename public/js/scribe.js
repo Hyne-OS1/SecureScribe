@@ -24,7 +24,7 @@ if (title && content) {
   }
 };
 
-// edit post method - change to "view" ? 
+// edit post method
 
 const updateFormHandler = async (event) => {
   event.preventDefault();
