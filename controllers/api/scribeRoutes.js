@@ -3,6 +3,10 @@ const { Scribe, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
+
+
+
+
 router.get('/', async (req, res) => {
   // find all scribes for user
   try {
@@ -54,6 +58,7 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 
+
 router.put('/:id', (req, res) => {
   // Calls the update method on the scribe model
   Scribe.update(req.body,
@@ -70,6 +75,7 @@ router.put('/:id', (req, res) => {
     })
     .catch((err) => res.json(err));
 });
+
 
 
 router.delete('/:id', withAuth, async (req, res) => {

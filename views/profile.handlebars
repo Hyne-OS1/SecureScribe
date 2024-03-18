@@ -79,17 +79,18 @@
 </svg>
 
     </h1>
-    <div class="container my-2 py-4 rounded">
-        <label for="exampleFormControlInput1" id="title" class="form-label">Title</label>
-        <input type="email" class="form-control fw-light" id="exampleFormControlInput1"
-            placeholder="Today I discovered...">
-    </div>
-    <div class="container my-2 py-4 rounded">
-        <label for="exampleFormControlTextarea1" id="content" class="form-label">Jot down your thoughts, dreams or
-            ideas</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        <a href="#" class="btn text-light bg-secondary mt-4" id="submit">Submit</a>
-    </div>
+    <form action="/viewscribe" method="POST">
+        <div class="container my-2 py-4 rounded">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" name="title" class="form-control fw-light" id="title" placeholder="Today I discovered...">
+        </div>
+        <div class="container my-2 py-4 rounded">
+            <label for="content" class="form-label">Jot down your thoughts, dreams or ideas</label>
+            <textarea name="content" class="form-control" id="content" rows="3"></textarea>
+            <button type="submit" class="btn text-light bg-secondary mt-4" id="submitscribe">Submit</button>
+        </div>
+    </form>
+</section>
 
 </section>
 
