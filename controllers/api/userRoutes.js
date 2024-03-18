@@ -61,9 +61,13 @@ router.post('/signup',  async (req, res) => {
     password,
   });
 
-  //localhost:300/api/users/signup
-  //localhost:3001/api/users/this.propfind;e
-  res.status(200).json(newUser);
+  req.session.save(() => {
+    req.session.user_id = newUser.id;
+    req.session.logged_in = true;
+
+
+    res.status(200).json(newUser);
+  });
   
 } catch (error) {
   console.error('error cannot create account', error);
