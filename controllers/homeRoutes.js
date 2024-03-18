@@ -68,23 +68,38 @@ router.get('/signup', (req, res) => {
 });
 
 
-// GET for viewscribe page
-router.get('/viewscribe', (req, res) => {
-  res.render('viewscribe');
-});
 
 router.get('/viewscribe', (req, res) => {
-  const scribeEntryData = {
-    title: 'My Diary Entry',
-    content: 'This is the content of my diary entry.'
-  };
-  res.render('viewscribe', scribeEntryData);
+  res.render('viewscribe', { title: '', content: '' }); // Render the page with empty values
 });
 
+// POST for viewscribe page
 router.post('/viewscribe', (req, res) => {
   const { title, content } = req.body;
-  res.render('viewscribe', { title, content });
+  res.render('viewscribe', { title, content }); // Render the page with the submitted values
 });
+
+
+
+
+
+// // GET for viewscribe page
+// router.get('/viewscribe', (req, res) => {
+//   res.render('viewscribe');
+// });
+
+// router.get('/viewscribe', (req, res) => {
+//   const scribeEntryData = {
+//     title: 'My Diary Entry',
+//     content: 'This is the content of my diary entry.'
+//   };
+//   res.render('viewscribe', scribeEntryData);
+// });
+
+// router.post('/viewscribe', (req, res) => {
+//   const { title, content } = req.body;
+//   res.render('viewscribe', { title, content });
+// });
 
 
 
