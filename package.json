@@ -1,8 +1,13 @@
 {
+  "name": "securescribe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
   "scripts": {
     "seed": "node seeds/seed.js",
     "watch": "nodemon server.js"
   },
+  
   "dependencies": {
     "bcrypt": "^5.1.1",
     "color-scheme": "^1.0.1",
