@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
       // Serialize data so that it is suitable to be rendered in templates
       const scribe = scribeData.map((scribes) => scribes.get({ plain: true }));
       // Pass serialized data and session flag into template
-      res.render('landingpage', {
+      res.render('landingPage', {
         scribe,
 
       });
@@ -34,8 +34,8 @@ router.get('/', async (req, res) => {
   // GET route for LOGIN handlebars page, will check if user is logged in or not.
     router.get('/login', (req, res) => {
       // Assuming you set up sessions middleware before this route handler
-      req.session.user_id = '1'; // Just an example user id
-      req.session.logged_in = true;
+      // req.session.user_id = '1'; // Just an example user id
+      // req.session.logged_in = true;
   
       console.log(req.session.logged_in);
       const logged_in = req.session.logged_in;
@@ -43,8 +43,9 @@ router.get('/', async (req, res) => {
       if (req.session.logged_in) {
           console.log("success user logged in");
            res.render('profile', {logged_in});
+           return;
       }
-  
+      console.log("Test");
       // If the user is not logged in, render the login page
       res.render('login');
   });
@@ -58,7 +59,7 @@ router.get('/', async (req, res) => {
     }
 
     // Render the profile page
-    res.render('profile');
+    res.render('profile', {logged_in : req.session.logged_in});
 });
 
 

@@ -1,5 +1,32 @@
 
 
+const loginPageFormHandler = async (event) => {
+  event.preventDefault();
+  // console.log('testttttt');
+
+  // Collect values from the login form
+  const email = document.querySelector('#login-email').value.trim();
+  const password = document.querySelector('#login-password').value.trim();
+
+  if (email && password) {
+    // Send a POST request to the API endpoint
+    const response = await fetch('/api/users/login', {
+      method: 'POST',
+      body: JSON.stringify({ email, password }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    if (response.ok) {
+      // If successful, redirect the browser to the profile page
+      document.location.replace('/profile');
+    } else {
+      alert(response.statusText);
+    }
+  }
+};
+
+
+
 // Login Form Handler Function
 const loginFormHandler = async (event) => {
     event.preventDefault();
@@ -62,6 +89,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   })
   
+
+  document
+  .querySelector('.login-form')
+  .addEventListener('submit', loginPageFormHandler);
 
 
   document
