@@ -19,13 +19,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+const logout = async () => {
+    const response = await fetch('/api/users/logout', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+    });
+  
+    if (response.ok) {
+      document.location.replace('/');
+    } else {
+      alert(response.statusText);
+    }
+  };
+  
+  document.querySelector('#logout').addEventListener('click', logout);
 // Logout button functionality
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('logout').addEventListener('click', () => {
-        console.log("test");
-        window.location.href = '/landingpage'
-    })
-});
+// // document.addEventListener('DOMContentLoaded', () => {
+// //     document.getElementById('logout').addEventListener('click', () => {
+// //         console.log("test");
+// //         window.location.href = '/'
+// //     })
+// // });
 
 const createAccountBtn = document.getElementById('create-an-account');
 

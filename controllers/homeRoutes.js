@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
       // Serialize data so that it is suitable to be rendered in templates
       const scribe = scribeData.map((scribes) => scribes.get({ plain: true }));
       // Pass serialized data and session flag into template
-      res.render('landingpage', {
+      res.render('landingPage', {
         scribe,
 
       });
@@ -45,7 +45,7 @@ router.get('/', async (req, res) => {
            res.render('profile', {logged_in});
            return;
       }
-  
+      console.log("Test");
       // If the user is not logged in, render the login page
       res.render('login');
   });
