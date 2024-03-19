@@ -48,8 +48,8 @@ const loginFormHandler = async (event) => {
   };
   
 
-// Login Button on loginpage
-
+  
+  // Login Button on loginpage
 document.addEventListener('DOMContentLoaded', () => {      
   document.getElementById('login-button').addEventListener('click', () => {
       if (req.session.logged_in) {
