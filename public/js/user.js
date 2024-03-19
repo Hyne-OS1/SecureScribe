@@ -19,31 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-const logout = async () => {
-    const response = await fetch('/api/users/logout', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-    });
-  
-    if (response.ok) {
-      document.location.replace('/');
-    } else {
-      alert(response.statusText);
-    }
-  };
-  
-  document.querySelector('#logout').addEventListener('click', logout);
-// Logout button functionality
-// // document.addEventListener('DOMContentLoaded', () => {
-// //     document.getElementById('logout').addEventListener('click', () => {
-// //         console.log("test");
-// //         window.location.href = '/'
-// //     })
-// // });
 
 const createAccountBtn = document.getElementById('create-an-account');
 
-// Create Account functionality
 createAccountBtn.addEventListener('click', async (event) => {
     event.preventDefault();
     const name = document.querySelector('#name').value;
@@ -61,26 +39,20 @@ createAccountBtn.addEventListener('click', async (event) => {
             headers: {
                 'Content-Type': 'application/json',
             }
-            
-            });
-                if (response.ok) { alert('you have successfully created an account!!')
-                    document.location.replace('/profile');
-                    //window.location.href = '/profile';
-                } else {
-                    alert("Error!!")
-                    
-                    //console.error('Error creating new account!', response.statusText);
-                }
-                }
-                catch (error) {
-                    console.error('Network error:', error);
-                }
-            
-        
         });
 
-
-
+        if (response.ok) {
+            alert('You have successfully created an account!!');
+            document.location.replace('/profile');
+        } else {
+            alert("Error!!");
+            //console.error('Error creating new account!', response.statusText);
+        }
+    } catch (error) {
+        console.error('Network error:', error);
+    }
+});
+// logout button functionality
 
 
 
