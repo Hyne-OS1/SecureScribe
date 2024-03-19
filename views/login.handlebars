@@ -8,11 +8,31 @@
       <div class="col card-body shadow p-5 rounded bg-white">
         <h1 class="text-bold text-center">Welcome Back!</h1>
         <h2 class="lead pt-5 fw-bold">Login to access your account:</h2>
-        <input type="text" class="form-control" placeholder="Username or Email" aria-label="Username or Email">
-        <div class="col">
-          <input type="text" class="form-control" placeholder="Password" aria-label="Password">
-          <button type="button" id="login-button" class="btn bg-warning text-dark">Login</button>
+        <form class ="form login-form ">
+        <input type="text" class="form-input" id="login-email" placeholder="User Email" aria-label="User Email">
+        <div class="form group">
+          <input type="text" class="form-input" id="login-password" placeholder="Password" aria-label="Password">
+          
         </div>
+        <div>
+          <button type="submit" id="login-button" class="btn bg-warning text-dark">Login</button>
+        </div>
+        </form>
+            {{!-- <form class="form login-form"> --}}
+      {{!-- <div class="form-group">
+        <label for="login-email">email:</label>
+        <input class="form-input" type="text" id="login-email" />
+      </div>
+      <div class="form-group">
+        <label for="login-password">password:</label>
+        <input class="form-input" type="password" id="login-password" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" id="login-button" type="submit">signup</button>
+      </div>
+    </form> --}}
+  </div>
+</div>
       </div>
     </div>
   </div>
