@@ -68,6 +68,9 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
+router.get('/landingPage', (req, res) => {
+  res.render('landingPage');
+});
 
 
 router.get('/viewscribe', (req, res) => {
