@@ -34,7 +34,9 @@ To get started with Secure Scribe, simply sign up for an account and start journ
 ## Usage 
 
 To  use the application, follow these steps: 
-1. From your chosen browser navigate to (insert deployed URL here).
+1. From your chosen browser navigate to - 
+
+- https://secure-gorge-83546-fd710447ff28.herokuapp.com/ 
 
 
 
